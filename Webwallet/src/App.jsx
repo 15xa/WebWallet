@@ -79,7 +79,11 @@ import { EtheriumWallet } from './components/etheriumWallet';
     >
       I have a phrase
     </Link>
-      
+    {mnemonic &&
+      <Link   to={'/wallet'} 
+      className="mt-4 px-6 py-2 bg-gray-500 text-white rounded-lg hover:bg-gray-600 transition-colors text-center inline-block"
+     >
+      Get Wallet </Link>}
       <Mnemoniccomponent loading={loading} mnemonic={mnemonic}></Mnemoniccomponent>
     </div> 
     )

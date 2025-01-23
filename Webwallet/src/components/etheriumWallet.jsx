@@ -1,4 +1,5 @@
 import React from "react";
+import { useState } from "react";
 import { mnemonicToSeed } from "bip39";
 import {Wallet, HDNodeWallet} from 'ethers';
 
@@ -12,7 +13,8 @@ export const EtheriumWallet = ({mnemonic}) => {
     return(
     <div>
         <button onClick={async function(){
-            const seed = await mnemonicToSeed(mnemonicToSeed);
+            console.log(mnemonic);
+            const seed = await mnemonicToSeed(mnemonic);
             const derivationPath = `m/44'/60'/${currentIndex}'/0`;
             const hdNode = HDNodeWallet.fromSeed(seed);
             const child = hdNode.derivePath(derivationPath);
@@ -20,6 +22,7 @@ export const EtheriumWallet = ({mnemonic}) => {
             const wallet = new Wallet(privateKey);
             setCurrentIndex(currentIndex+1);
             setAddresses([...addresses, wallet.address]);
+            console.log(wallet, addresses)
         }}>
             Add ETH wallet
         </button>
